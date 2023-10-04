@@ -1,23 +1,33 @@
 class MyHashMap {
-    private List<Entry> entries;
+    private static final int SIZE = 1000;
+    private LinkedList<Entry>[] buckets;
 
     public MyHashMap() {
-        this.entries = new ArrayList<>();
+        this.buckets = new LinkedList[SIZE];
+        for(int i = 0; i < SIZE; i++){
+            buckets[i] = new LinkedList<Entry>();
+        }
     }
     
     public void put(int key, int value) {
-        for(Entry entry : entries){
+        int index = hash(key);
+        LinkedList<Entry> bucket = buckets[index];
+
+        for(Entry entry : bucket){
             if(key == entry.key){
                 entry.value = value;
                 return;
             }
         }
-        entries.add(new Entry(key, value));
+        bucket.add(new Entry(key, value));
 
     }
     
     public int get(int key) {
-        for(Entry entry : entries){
+        int index = hash(key);
+        LinkedList<Entry> bucket = buckets[index];
+
+        for(Entry entry : bucket){
             if(key == entry.key){
                 return entry.value;
             }
@@ -26,12 +36,19 @@ class MyHashMap {
     }
     
     public void remove(int key) {
-        for(Entry entry : entries){
+        int index = hash(key);
+        LinkedList<Entry> bucket = buckets[index];
+
+        for(Entry entry : bucket){
             if(key == entry.key){
-                entries.remove(entry);
+                bucket.remove(entry);
                 return ;
             }
         }
+    }
+
+    private int hash(int key){
+        return key % SIZE;
     }
 }
 
