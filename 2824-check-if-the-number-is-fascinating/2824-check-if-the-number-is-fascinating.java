@@ -3,8 +3,9 @@ class Solution {
         String concatedNumbers = Integer.toString(n) + Integer.toString(2*n)+ Integer.toString(3*n);
         HashSet<Integer> numbers = new HashSet<>();
     
-       if(concatedNumbers.contains("0")) return false;
-       //if(concatedNumbers.length()>9) return false;
+       if(concatedNumbers.contains("0")) {
+            return false;
+       }
 
         for(char number : concatedNumbers.toCharArray()){
 
@@ -13,12 +14,10 @@ class Solution {
             }
         }
 
-        for(int i = 1; i<10; i++){
-            if(!numbers.contains(i)){
-                return false;
-            }
+        if(numbers.size() == 9){
+            return true;
         }
         
-        return true;
+        return false;
     }
 }
