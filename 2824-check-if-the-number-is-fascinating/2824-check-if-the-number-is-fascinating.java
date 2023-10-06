@@ -4,13 +4,11 @@ class Solution {
         HashSet<Integer> numbers = new HashSet<>();
     
        if(concatedNumbers.contains("0")) return false;
-       if(concatedNumbers.length()>9) return false;
+       //if(concatedNumbers.length()>9) return false;
 
         for(char number : concatedNumbers.toCharArray()){
-            if(number == '0'){
-                return false;
-            }
-            else if(!numbers.add(Integer.parseInt(String.valueOf(number)))){
+
+             if(!numbers.add(Integer.parseInt(String.valueOf(number)))){
                 return false;
             }
         }
