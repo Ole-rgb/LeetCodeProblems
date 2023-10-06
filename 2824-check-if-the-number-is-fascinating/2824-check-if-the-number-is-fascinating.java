@@ -16,8 +16,6 @@ class Solution {
                 return false;
             }
         }
-        System.out.println(concatedNumbers);
-        System.out.println(numbers);
         return true;
     }
 }
