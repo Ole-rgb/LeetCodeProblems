@@ -3,12 +3,11 @@ class Solution {
         List<Boolean> greatesCandies = new ArrayList<>();
         int maxCandies = 0;
 
-        //get the maxCandies
         for(int candy : candies) {
             if(maxCandies<candy){
                 maxCandies=candy;
             }
-      } 
+        } 
 
         for(int candy : candies){
             greatesCandies.add(candy + extraCandies >= maxCandies);
