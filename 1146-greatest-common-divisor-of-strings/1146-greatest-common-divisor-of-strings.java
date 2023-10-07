@@ -6,9 +6,8 @@ class Solution {
         return str1.substring(0, endIndex);
     }
 
-    public int gcd(int a, int b) {
-        if (a == 0)
-            return b;
+    private int gcd(int a, int b) {
+        if (a == 0) return b;
 
         while (b != 0) {
             if (a > b)
