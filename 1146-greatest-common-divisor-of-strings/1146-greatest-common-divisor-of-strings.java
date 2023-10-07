@@ -5,7 +5,18 @@ class Solution {
         int endIndex = gcd(str1.length(), str2.length());
         return str1.substring(0, endIndex);
     }
-    private int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
+
+    public int gcd(int a, int b) {
+        if (a == 0)
+            return b;
+
+        while (b != 0) {
+            if (a > b)
+                a = a - b;
+            else
+                b = b - a;
+        }
+
+        return a;
     }
 }
