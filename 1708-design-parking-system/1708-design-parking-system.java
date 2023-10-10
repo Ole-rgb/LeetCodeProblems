@@ -11,28 +11,14 @@ class ParkingSystem {
     }
     
     public boolean addCar(int carType) {
-        if(carType == 3){
-            //small car
-            if(freeSmall -1 >= 0){
-                freeSmall = freeSmall- 1;
-                return true;
-            }
+        if((carType == 1  & freeBig==0)|| (carType == 2  & freeMedium==0)||(carType == 3 & freeSmall == 0)){
+            return false;
         }
-        else if(carType == 2){
-            //medium car
-            if(freeMedium -1 >= 0){
-                freeMedium = freeMedium - 1;
-                return true;
-            }
-        }
-        else if(carType == 1){
-            //big car
-            if(freeBig -1 >= 0){
-                freeBig = freeBig - 1;
-                return true;
-            }
-        }
-        return false;
+
+        if(carType == 1) freeBig--;
+        if(carType == 2) freeMedium--;
+        if(carType == 3) freeSmall--;
+        return true;
     }
 }
 
