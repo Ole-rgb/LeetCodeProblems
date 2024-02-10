@@ -10,7 +10,7 @@ class Solution:
         Dynamic Programming
         Basecase there are no leafs to explore in current state->return 0
         '''
-        if not root:
+        if root == None:
             return 0
 
         if root.left == None and root.right == None:
