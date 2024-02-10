@@ -8,11 +8,13 @@ class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         '''
         Dynamic Programming
-        Basecase there are no leafs to explore in current state->return 0
         '''
+
+        #if there is no rootnode the depth is zero
         if root == None:
             return 0
 
+        # if there is one node with no childnodes the depth should be one
         if root.left == None and root.right == None:
             return 1
 
