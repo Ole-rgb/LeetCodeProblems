@@ -27,9 +27,7 @@ class Solution:
                 #find next non zero then swap and increase indixes by one 
                 while j<len(nums)-1 and nums[j] ==0:
                     j+=1
-                tmp = nums[j]
-                nums[j] = nums[i]
-                nums[i] = tmp
+                nums[i], nums[j] = nums[j], nums[i]
             i += 1
             j += 1
         
