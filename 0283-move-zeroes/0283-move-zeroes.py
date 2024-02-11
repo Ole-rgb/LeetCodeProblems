@@ -28,6 +28,6 @@ class Solution:
                     j+=1
                 #then swap
                 nums[i], nums[j] = nums[j], nums[i]
-            i,j += 1
-            #j += 1
+            #check next numbers
+            i,j = i+1, j+1
         
