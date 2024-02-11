@@ -10,16 +10,15 @@ class Solution:
         [0, 1, 0, 3, 12]
         i^  
         j^
-        
         find first non zero to swap with and swap
         [0, 1, 0, 3, 12]
         i^  
         j   ^
         [1, 0, 0, 3, 12]
-        
+        then increase both pointers to check next element
         [1, 0, 0, 3, 12]
-        i^  
-        j   ^        
+        i   ^  
+        j      ^        
         """
         i = 0
         j = 1
