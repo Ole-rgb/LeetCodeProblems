@@ -24,15 +24,17 @@ class Solution:
         if n == 0:
             return True
         
-        for i in range(len(flowerbed)):
+        i = 0
+        while i < len(flowerbed):
                 
             # check the current square if its the first index dont check the one before and if its the last index dont check the one after
             if flowerbed[i]==0 and (i==0 or flowerbed[i-1] ==0) and (i == len(flowerbed)-1 or flowerbed[i+1]==0):
-                flowerbed[i] = 1
+                i += 1 #skip the next index because we cant place a flower there 
                 n-=1
             
                 if n == 0:
                     return True
 
+            i+= 1
 
         return 
