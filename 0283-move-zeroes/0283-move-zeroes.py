@@ -20,14 +20,14 @@ class Solution:
         i   ^  
         j      ^        
         """
-        i = 0
-        j = 1
+        i,j = 0,1
         while i < len(nums) and j < len(nums):
             if nums[i] == 0:
                 #find next non zero then swap and increase indixes by one 
                 while j<len(nums)-1 and nums[j] ==0:
                     j+=1
+                #then swap
                 nums[i], nums[j] = nums[j], nums[i]
-            i += 1
-            j += 1
+            i,j += 1
+            #j += 1
         
