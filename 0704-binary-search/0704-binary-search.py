@@ -12,6 +12,6 @@ class Solution:
                 max = mid-1
 
             else:
-                return i
+                return mid
 
         return -1
