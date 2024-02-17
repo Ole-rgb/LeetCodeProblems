@@ -4,12 +4,12 @@ class Solution:
         min=0
         
         while min<=max:
-            i = (min+max)//2
+            mid = (min+max)//2
             
-            if nums[i] < target:
-                min = i+1
-            elif nums[i] > target:
-                max = i-1
+            if nums[mid] < target:
+                min = mid+1
+            elif nums[mid] > target:
+                max = mid-1
 
             else:
                 return i
