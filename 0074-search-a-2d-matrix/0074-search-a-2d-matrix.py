@@ -7,14 +7,12 @@ class Solution:
             if target >= row[min] and target <= row[max]:
                 while min<=max:
                     mid = (min+max)//2
-
-                    if target < row[mid]:
+                    if row[mid] == target:
+                        return True
+                    elif target < row[mid]:
                         max = mid-1
-                        continue
-                    if target > row[mid]:
+                        
+                    elif target > row[mid]:
                         min = mid+1
-                        continue
-                    
-                    return True
 
         return False
