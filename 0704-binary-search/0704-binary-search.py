@@ -8,11 +8,10 @@ class Solution:
             
             if nums[i] < target:
                 min = i+1
-                continue
-            if nums[i] > target:
+            elif nums[i] > target:
                 max = i-1
-                continue
 
-            return i
+            else:
+                return i
 
         return -1
