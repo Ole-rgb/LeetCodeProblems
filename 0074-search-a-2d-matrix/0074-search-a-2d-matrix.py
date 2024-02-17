@@ -4,9 +4,9 @@ class Solution:
             min=0
             max=len(row)-1
 
-            if not target >= row[min] and not target <= row[max]:
+            if  !(target >= row[min] and target <= row[max]):
                 continue
-                
+
             while min<=max:
                 mid = (min+max)//2
 
