@@ -5,7 +5,17 @@ class Solution:
             max=len(row)-1
 
             if target >= row[min] and target <= row[max]:
-                return self.number_in_row(row,target)
+                while min<=max:
+                    mid = (min+max)//2
+
+                    if target < nums[mid]:
+                        max = mid-1
+                        continue
+                    if target > nums[mid]:
+                        min = mid+1
+                        continue
+                    
+                    return True
 
         return False
 
