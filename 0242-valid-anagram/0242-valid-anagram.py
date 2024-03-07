@@ -5,12 +5,11 @@ class Solution:
         if len(s) != len(t):
             return False 
 
-        d = defaultdict(lambda: 0)
-        for i in range(0,len(s)):
-            d[s[i]] = d[s[i]] + 1
-            d[t[i]] = d[t[i]] - 1
-        
-        for value in d.values():
-            if value != 0:
-                return False
-        return True
+        s_freq = {}
+        t_freq = {}
+        for char in s:
+            s_freq[char] = s_freq.get(char,0)+1
+        for char in t:
+            t_freq[char] = t_freq.get(char,0)+1
+
+        return s_freq == t_freq
