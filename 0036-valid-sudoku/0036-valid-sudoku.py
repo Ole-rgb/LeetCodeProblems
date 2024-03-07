@@ -3,7 +3,6 @@ rows = [[(j,i) for i in range (0,9)] for j in range(0,9)]
 blocks = [
     [((i // 3) * 3 + j // 3, (i % 3) * 3 + j % 3) for j in range(9)] for i in range(9)
 ]
-all_constraints = [rows, colums,blocks]
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
