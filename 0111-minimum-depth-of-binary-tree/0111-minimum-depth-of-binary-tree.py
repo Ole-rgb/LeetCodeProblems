@@ -9,9 +9,9 @@ class Solution:
         if root is None:
             return 0
 
-        if root.left == None:
+        if root.left == None:#if left is None, choose right 
             return self.minDepth(root.right)+1
-        elif root.right == None:
+        elif root.right == None:#if right is none, choose left
             return self.minDepth(root.left)+1
-        else:
+        else:#if both are not None, choose the less expensive path
             return min(self.minDepth(root.left), self.minDepth(root.right))+1
