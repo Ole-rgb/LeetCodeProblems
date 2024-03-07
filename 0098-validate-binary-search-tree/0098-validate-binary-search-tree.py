@@ -7,6 +7,8 @@
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         def bst(root, min_val=float('-inf'), max_val=float('inf'))->bool:
+            #depth first search 
+            #could be optimized by inorder traversal of the tree and only comparing node.val < prev.val
             if root is None:
                 return True
 
