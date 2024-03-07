@@ -7,17 +7,15 @@ all_constraints = [rows, colums,blocks]
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        return self.__valid(board)
+        return self.valid(rows, board) and self.valid(colums, board) and self.valid(blocks, board)
 
-    def __valid(self,board: List[List[str]])->bool:
-        for constraint_type in all_constraints:
-            for constraint in constraint_type:
-                s = dict()
-                for (x,y) in constraint:
-                    if board[x][y] ==  ".":
-                        continue
-                    elif s.get(board[x][y]) is not None:
-                        return False
-                    s[board[x][y]] = True
-
+    def valid(self,constraints: List[Tuple[int]],board: List[List[str]])->bool:
+        for constraint in constraints:
+            s = dict()
+            for (x,y) in constraint:
+                if board[x][y] ==  ".":
+                    continue
+                elif s.get(board[x][y]) is not None:
+                    return False
+                s[board[x][y]] = True
         return True
