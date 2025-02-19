@@ -1,20 +1,18 @@
-colums = [[(i,j) for i in range (0,9)] for j in range(0,9)] #(0,0), (0,1), ..., (0,8), (1,0), (1,1),..., (8,7), (8,8)
-rows = [[(j,i) for i in range (0,9)] for j in range(0,9)]
-blocks = [
-    [((i // 3) * 3 + j // 3, (i % 3) * 3 + j % 3) for j in range(9)] for i in range(9)
-]
+columns = [[(r,c) for r in range(9)] for c in range(9)]
+rows = [[(r,c) for c in range(9)] for r in range(9)]
+blocks = [[(r,c) for r in range(br, br+3) for c in range(bc, bc+3)] for br in range(0,9,3) for bc in range(0,9,3)]
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        return self.valid(rows, board) and self.valid(colums, board) and self.valid(blocks, board)
-
-    def valid(self,constraints: List[Tuple[int]],board: List[List[str]])->bool:
+        return self.is_valid(rows, board) and self.is_valid(columns, board) and self.is_valid(blocks, board)
+    
+    def is_valid(self, constraints, board):
         for constraint in constraints:
-            s = dict()
-            for (x,y) in constraint:
-                if board[x][y] ==  ".":
+            s = set()
+            for (i,j) in constraint:
+                if board[i][j] == ".":
                     continue
-                elif s.get(board[x][y]) is not None:
+                if int(board[i][j]) in s:
                     return False
-                s[board[x][y]] = True
+                s.add(int(board[i][j]))
         return True
