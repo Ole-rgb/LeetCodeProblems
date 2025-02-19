@@ -3,8 +3,7 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        #   [0,1,0,3,12]
-        #   find first non zero and swap with first position, then find next non zero after index of last non zero and swap to second position,...
+        #   find first non zero and swap with first position, then find next non zero and swap to second position, ...
         j = 0
 
         for i in range(len(nums)):
